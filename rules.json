@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "updatedAt": "2026-04-10T00:00:00Z",
+  "version": "1.1.0",
+  "updatedAt": "2026-04-10T12:00:00Z",
   "categories": [
     {
       "name": "Art & Illustration",
@@ -10,10 +10,17 @@
           "name": "Pixiv",
           "hostPattern": "*.pixiv.net",
           "enabled": true,
-          "imageSelector": "figure img, .sc-1qpw8k9-2 img",
+          "imageSelector": "img[src*=\"i.pximg.net\"]",
           "minWidth": 0,
           "minHeight": 0,
-          "excludePatterns": ["/common/", "/user-profile/"]
+          "excludePatterns": ["/common/", "/user-profile/"],
+          "urlTransforms": [
+            { "from": "custom-thumb", "to": "img-master" },
+            { "from": "c/250x250_80_a2/", "to": "" },
+            { "from": "c/540x540_70/", "to": "" },
+            { "from": "_custom1200", "to": "_master1200" },
+            { "from": "_square1200", "to": "_master1200" }
+          ]
         },
         {
           "id": "builtin_artstation",
@@ -99,6 +106,19 @@
           "minWidth": 200,
           "minHeight": 200,
           "excludePatterns": ["avatar", "profile"]
+        },
+        {
+          "id": "builtin_bing_ioliu",
+          "name": "Bing Wallpaper (ioliu.cn)",
+          "hostPattern": "bing.ioliu.cn",
+          "enabled": true,
+          "imageSelector": "img[fetchpriority=\"high\"]",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": [],
+          "urlTransforms": [
+            { "from": "&w=800&h=450", "to": "" }
+          ]
         }
       ]
     },
@@ -254,6 +274,27 @@
           "minWidth": 0,
           "minHeight": 0,
           "excludePatterns": []
+        }
+      ]
+    },
+    {
+      "name": "Movie & TV",
+      "rules": [
+        {
+          "id": "builtin_themoviedb",
+          "name": "The Movie Database (TMDb)",
+          "hostPattern": "www.themoviedb.org",
+          "enabled": true,
+          "imageSelector": "img[src*=\"image.tmdb.org\"]",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": ["gravatar"],
+          "urlTransforms": [
+            { "from": "w220_and_h330_face", "to": "original" },
+            { "from": "w440_and_h660_face", "to": "original" },
+            { "from": "w300_and_h450_face", "to": "original" },
+            { "from": "w600_and_h900_bestv2", "to": "original" }
+          ]
         }
       ]
     },
