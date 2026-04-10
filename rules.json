@@ -1,0 +1,286 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-04-10T00:00:00Z",
+  "categories": [
+    {
+      "name": "Art & Illustration",
+      "rules": [
+        {
+          "id": "builtin_pixiv",
+          "name": "Pixiv",
+          "hostPattern": "*.pixiv.net",
+          "enabled": true,
+          "imageSelector": "figure img, .sc-1qpw8k9-2 img",
+          "minWidth": 0,
+          "minHeight": 0,
+          "excludePatterns": ["/common/", "/user-profile/"]
+        },
+        {
+          "id": "builtin_artstation",
+          "name": "ArtStation",
+          "hostPattern": "*.artstation.com",
+          "enabled": true,
+          "imageSelector": "img.gallery-grid-image, .project-image img",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": ["/profile/", "/cover/", "avatar"]
+        },
+        {
+          "id": "builtin_deviantart",
+          "name": "DeviantArt",
+          "hostPattern": "*.deviantart.com",
+          "enabled": true,
+          "imageSelector": "img[fetchpriority=\"high\"], img.dev-content-full, .dev-view-deviation img",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": ["/avatars/"]
+        },
+        {
+          "id": "builtin_behance",
+          "name": "Behance",
+          "hostPattern": "*.behance.net",
+          "enabled": true,
+          "imageSelector": "img.bf-slideshow-img, .project-module-image img",
+          "minWidth": 200,
+          "minHeight": 200,
+          "excludePatterns": ["profile_photos", "avatar"]
+        }
+      ]
+    },
+    {
+      "name": "Photography",
+      "rules": [
+        {
+          "id": "builtin_flickr",
+          "name": "Flickr",
+          "hostPattern": "*.flickr.com",
+          "enabled": true,
+          "imageSelector": "img.main-photo, .photo-well-scrappy-view img",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": ["/buddyicons/", "/profile_pic/"]
+        },
+        {
+          "id": "builtin_500px",
+          "name": "500px",
+          "hostPattern": "*.500px.com",
+          "enabled": true,
+          "imageSelector": "img[class*=\"photo\"], img[class*=\"Photo\"]",
+          "minWidth": 200,
+          "minHeight": 200,
+          "excludePatterns": ["avatar", "profile"]
+        },
+        {
+          "id": "builtin_unsplash",
+          "name": "Unsplash",
+          "hostPattern": "unsplash.com",
+          "enabled": true,
+          "imageSelector": "figure img, [data-test=\"photo-grid-masonry-img\"] img",
+          "minWidth": 200,
+          "minHeight": 200,
+          "excludePatterns": ["profile_images", "profile-picture"]
+        },
+        {
+          "id": "builtin_pexels",
+          "name": "Pexels",
+          "hostPattern": "*.pexels.com",
+          "enabled": true,
+          "imageSelector": "img[class*=\"photo\"], img[class*=\"PhotoItem\"]",
+          "minWidth": 200,
+          "minHeight": 200,
+          "excludePatterns": ["avatar"]
+        },
+        {
+          "id": "builtin_vsco",
+          "name": "VSCO",
+          "hostPattern": "vsco.co",
+          "enabled": true,
+          "imageSelector": "img[class*=\"image\"], img[class*=\"Image\"]",
+          "minWidth": 200,
+          "minHeight": 200,
+          "excludePatterns": ["avatar", "profile"]
+        }
+      ]
+    },
+    {
+      "name": "Social Media",
+      "rules": [
+        {
+          "id": "builtin_twitter",
+          "name": "Twitter / X",
+          "hostPattern": "twitter.com",
+          "enabled": true,
+          "imageSelector": "img[src*=\"pbs.twimg.com/media\"]",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": ["profile_images", "profile_banners"]
+        },
+        {
+          "id": "builtin_x",
+          "name": "X (x.com)",
+          "hostPattern": "x.com",
+          "enabled": true,
+          "imageSelector": "img[src*=\"pbs.twimg.com/media\"]",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": ["profile_images", "profile_banners"]
+        },
+        {
+          "id": "builtin_reddit",
+          "name": "Reddit",
+          "hostPattern": "*.reddit.com",
+          "enabled": true,
+          "imageSelector": "img[src*=\"preview.redd.it\"], img[src*=\"i.redd.it\"]",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": ["snoomoji", "icon", "avatar", "banner"]
+        },
+        {
+          "id": "builtin_tumblr",
+          "name": "Tumblr",
+          "hostPattern": "*.tumblr.com",
+          "enabled": true,
+          "imageSelector": ".photo-wrap img, article img",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": ["avatar", "icon"]
+        }
+      ]
+    },
+    {
+      "name": "Image Boards & Galleries",
+      "rules": [
+        {
+          "id": "builtin_danbooru",
+          "name": "Danbooru",
+          "hostPattern": "danbooru.donmai.us",
+          "enabled": true,
+          "imageSelector": "#image, img#image, .image-container img",
+          "minWidth": 0,
+          "minHeight": 0,
+          "excludePatterns": []
+        },
+        {
+          "id": "builtin_gelbooru",
+          "name": "Gelbooru",
+          "hostPattern": "gelbooru.com",
+          "enabled": true,
+          "imageSelector": "img#image, #content img",
+          "minWidth": 0,
+          "minHeight": 0,
+          "excludePatterns": []
+        },
+        {
+          "id": "builtin_rule34",
+          "name": "Rule34.xxx",
+          "hostPattern": "rule34.xxx",
+          "enabled": true,
+          "imageSelector": "img#image",
+          "minWidth": 0,
+          "minHeight": 0,
+          "excludePatterns": []
+        },
+        {
+          "id": "builtin_pinterest",
+          "name": "Pinterest",
+          "hostPattern": "*.pinterest.com",
+          "enabled": true,
+          "imageSelector": "img[src*=\"i.pinimg.com\"][src*=\"originals\"], img[src*=\"i.pinimg.com\"]",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": ["/30x30/", "/75x75/", "/140x/", "/236x/", "favicon"]
+        },
+        {
+          "id": "builtin_imgur",
+          "name": "Imgur",
+          "hostPattern": "imgur.com",
+          "enabled": true,
+          "imageSelector": ".post-image-container img, .image-wrap img",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": ["s.imgur.com", "avatar"]
+        },
+        {
+          "id": "builtin_konachan",
+          "name": "Konachan",
+          "hostPattern": "konachan.com",
+          "enabled": true,
+          "imageSelector": "img#image, #samples-box img",
+          "minWidth": 0,
+          "minHeight": 0,
+          "excludePatterns": []
+        },
+        {
+          "id": "builtin_zerochan",
+          "name": "Zerochan",
+          "hostPattern": "www.zerochan.net",
+          "enabled": true,
+          "imageSelector": "#large img, #entry-image img",
+          "minWidth": 0,
+          "minHeight": 0,
+          "excludePatterns": []
+        }
+      ]
+    },
+    {
+      "name": "Anime & Manga",
+      "rules": [
+        {
+          "id": "builtin_myanimelist",
+          "name": "MyAnimeList",
+          "hostPattern": "myanimelist.net",
+          "enabled": true,
+          "imageSelector": "img.lazyloaded[data-src*=\"cdn.myanimelist.net\"]",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": []
+        },
+        {
+          "id": "builtin_anilist",
+          "name": "AniList",
+          "hostPattern": "anilist.co",
+          "enabled": true,
+          "imageSelector": ".cover-wrap img, .list-preview-wrap img",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": ["avatar"]
+        },
+        {
+          "id": "builtin_nicovideo",
+          "name": "Niconico Seiga",
+          "hostPattern": "seiga.nicovideo.jp",
+          "enabled": true,
+          "imageSelector": "img.mg_image, #illust_area img",
+          "minWidth": 0,
+          "minHeight": 0,
+          "excludePatterns": []
+        }
+      ]
+    },
+    {
+      "name": "Stock & Microstock",
+      "rules": [
+        {
+          "id": "builtin_shutterstock",
+          "name": "Shutterstock",
+          "hostPattern": "*.shutterstock.com",
+          "enabled": true,
+          "imageSelector": "img[src*=\"shutterstock\"]:not([class*=\"logo\"])",
+          "minWidth": 200,
+          "minHeight": 200,
+          "excludePatterns": ["icon", "logo", "contributor_avatar"]
+        },
+        {
+          "id": "builtin_gettyimages",
+          "name": "Getty Images",
+          "hostPattern": "*.gettyimages.com",
+          "enabled": true,
+          "imageSelector": "img[data-asset-id], .mosaic-asset-comp img",
+          "minWidth": 200,
+          "minHeight": 200,
+          "excludePatterns": ["logo", "icon"]
+        }
+      ]
+    }
+  ]
+}
