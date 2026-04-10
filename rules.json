@@ -171,36 +171,6 @@
       "name": "Image Boards & Galleries",
       "rules": [
         {
-          "id": "builtin_danbooru",
-          "name": "Danbooru",
-          "hostPattern": "danbooru.donmai.us",
-          "enabled": true,
-          "imageSelector": "#image, img#image, .image-container img",
-          "minWidth": 0,
-          "minHeight": 0,
-          "excludePatterns": []
-        },
-        {
-          "id": "builtin_gelbooru",
-          "name": "Gelbooru",
-          "hostPattern": "gelbooru.com",
-          "enabled": true,
-          "imageSelector": "img#image, #content img",
-          "minWidth": 0,
-          "minHeight": 0,
-          "excludePatterns": []
-        },
-        {
-          "id": "builtin_rule34",
-          "name": "Rule34.xxx",
-          "hostPattern": "rule34.xxx",
-          "enabled": true,
-          "imageSelector": "img#image",
-          "minWidth": 0,
-          "minHeight": 0,
-          "excludePatterns": []
-        },
-        {
           "id": "builtin_pinterest",
           "name": "Pinterest",
           "hostPattern": "*.pinterest.com",
@@ -219,16 +189,6 @@
           "minWidth": 100,
           "minHeight": 100,
           "excludePatterns": ["s.imgur.com", "avatar"]
-        },
-        {
-          "id": "builtin_konachan",
-          "name": "Konachan",
-          "hostPattern": "konachan.com",
-          "enabled": true,
-          "imageSelector": "img#image, #samples-box img",
-          "minWidth": 0,
-          "minHeight": 0,
-          "excludePatterns": []
         },
         {
           "id": "builtin_zerochan",
