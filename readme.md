@@ -71,7 +71,6 @@ The extension caches the result in `chrome.storage.local` and refreshes it:
 ### Social Media
 | Site | Host pattern |
 |---|---|
-| Twitter / X (twitter.com) | `twitter.com` |
 | X (x.com) | `x.com` |
 | Reddit | `*.reddit.com` |
 | Tumblr | `*.tumblr.com` |
@@ -79,12 +78,9 @@ The extension caches the result in `chrome.storage.local` and refreshes it:
 ### Image Boards & Galleries
 | Site | Host pattern |
 |---|---|
-| Danbooru | `danbooru.donmai.us` |
-| Gelbooru | `gelbooru.com` |
-| Rule34.xxx | `rule34.xxx` |
+
 | Pinterest | `*.pinterest.com` |
 | Imgur | `imgur.com` |
-| Konachan | `konachan.com` |
 | Zerochan | `www.zerochan.net` |
 
 ### Anime & Manga

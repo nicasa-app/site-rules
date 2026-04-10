@@ -126,16 +126,6 @@
       "name": "Social Media",
       "rules": [
         {
-          "id": "builtin_twitter",
-          "name": "Twitter / X",
-          "hostPattern": "twitter.com",
-          "enabled": true,
-          "imageSelector": "img[src*=\"pbs.twimg.com/media\"]",
-          "minWidth": 100,
-          "minHeight": 100,
-          "excludePatterns": ["profile_images", "profile_banners"]
-        },
-        {
           "id": "builtin_x",
           "name": "X (x.com)",
           "hostPattern": "x.com",
