@@ -44,8 +44,10 @@ The extension caches the result in `chrome.storage.local` and refreshes it:
 | `minWidth` | `number` | ✓ | Minimum image width in pixels to accept (0 = no limit). |
 | `minHeight` | `number` | ✓ | Minimum image height in pixels to accept (0 = no limit). |
 | `excludePatterns` | `string[]` | ✓ | URL substrings — images whose `src` contains any of these are discarded (avatars, icons, etc.). |
-| `urlTransformFrom` | `string` | — | Substring to find in extracted image URLs. |
-| `urlTransformTo` | `string` | — | Replacement string for `urlTransformFrom` (e.g. swap a thumbnail path segment for the full-size one). |
+| `urlTransformPipeline` | `string` | — | A pipeline of transform steps (separated by ` \| `) applied in order to every extracted image URL. See [URL transform pipeline](#url-transform-pipeline) below. |
+| `urlTransforms` | `{ from, to }[]` | — | **Deprecated.** Array of plain-string find & replace pairs. Superseded by `urlTransformPipeline`. |
+| `urlTransformFrom` | `string` | — | **Deprecated.** Single find substring. Superseded by `urlTransformPipeline`. |
+| `urlTransformTo` | `string` | — | **Deprecated.** Single replacement string. Superseded by `urlTransformPipeline`. |
 
 ---
 
@@ -82,6 +84,7 @@ The extension caches the result in `chrome.storage.local` and refreshes it:
 | Pinterest | `*.pinterest.com` |
 | Imgur | `imgur.com` |
 | Zerochan | `www.zerochan.net` |
+| Wallhaven | `wallhaven.cc` |
 
 ### Anime & Manga
 | Site | Host pattern |
@@ -112,7 +115,36 @@ The extension caches the result in `chrome.storage.local` and refreshes it:
 - Prefer **stable structural selectors** (`figure img`, `.gallery img`) over generated class names.
 - Use `excludePatterns` to filter out avatars, icons, and thumbnails — this prevents clutter in the Nicasa picker.
 - Test `minWidth` / `minHeight` against the site's actual content images; `0` means no size filter.
-- For sites that serve thumbnails and swap to full-size via URL path differences, use `urlTransformFrom` / `urlTransformTo`.
+- For sites that serve thumbnails and swap to full-size via URL path differences, use `urlTransformPipeline` (see below).
+
+---
+
+## URL transform pipeline
+
+`urlTransformPipeline` is a plain string of function calls separated by ` | `. Steps are applied left-to-right to the image URL.
+
+### Available functions
+
+| Function | Syntax | Description |
+|---|---|---|
+| `replace` | `replace('old', 'new')` | Plain-string find & replace (all occurrences). |
+| `re` | `re('pattern', 'replacement')` | Regex find & replace. `$1`, `$2` … capture groups are supported. |
+| `rm` | `rm('substring')` | Remove every occurrence of a substring. |
+| `lastafter` | `lastafter('sep', 'prepend')` | Take the last segment after `sep`, optionally prefix it, and return the part of the URL up to and including `sep` with the new filename. |
+| `param` | `param('key', 'value')` | Add or update a URL query parameter. |
+
+### Examples
+
+```
+# Wallhaven — swap thumbnail domain/path, then prefix the filename
+replace('th.wallhaven.cc/small','w.wallhaven.cc/full') | lastafter('/', 'wallhaven-')
+
+# Generic thumbnail → full-size via regex
+re('_[0-9]+x[0-9]+\\.', '.')
+
+# Add or override a quality parameter
+param('quality', '100')
+```
 
 ---
 
