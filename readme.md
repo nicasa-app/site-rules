@@ -45,6 +45,7 @@ The extension caches the result in `chrome.storage.local` and refreshes it:
 | `minHeight` | `number` | ✓ | Minimum image height in pixels to accept (0 = no limit). |
 | `excludePatterns` | `string[]` | ✓ | URL substrings — images whose `src` contains any of these are discarded (avatars, icons, etc.). |
 | `urlTransformPipeline` | `string` | — | A pipeline of transform steps (separated by ` \| `) applied in order to every extracted image URL. See [URL transform pipeline](#url-transform-pipeline) below. |
+| `urlExtFallbacks` | `string[]` | — | If the (transformed) image URL fails to load with a 4xx error, the viewer retries with each extension in order. Example: `["png", "webp"]` tries `.png` then `.webp`. No pre-flight requests are issued — retries happen only on actual load failure. |
 | `urlTransforms` | `{ from, to }[]` | — | **Deprecated.** Array of plain-string find & replace pairs. Superseded by `urlTransformPipeline`. |
 | `urlTransformFrom` | `string` | — | **Deprecated.** Single find substring. Superseded by `urlTransformPipeline`. |
 | `urlTransformTo` | `string` | — | **Deprecated.** Single replacement string. Superseded by `urlTransformPipeline`. |
@@ -137,6 +138,7 @@ The extension caches the result in `chrome.storage.local` and refreshes it:
 
 ```
 # Wallhaven — swap thumbnail domain/path, then prefix the filename
+# (full images may be .png/.webp; pair with urlExtFallbacks for load-time retry)
 replace('th.wallhaven.cc/small','w.wallhaven.cc/full') | lastafter('/', 'wallhaven-')
 
 # Generic thumbnail → full-size via regex
@@ -144,6 +146,15 @@ re('_[0-9]+x[0-9]+\\.', '.')
 
 # Add or override a quality parameter
 param('quality', '100')
+```
+
+**Wallhaven full rule example** (pipeline + extension fallbacks):
+
+```jsonc
+{
+  "urlTransformPipeline": "replace('th.wallhaven.cc/small','w.wallhaven.cc/full') | lastafter('/', 'wallhaven-')",
+  "urlExtFallbacks": ["png", "webp"]
+}
 ```
 
 ---

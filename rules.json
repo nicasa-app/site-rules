@@ -199,7 +199,8 @@
           "minWidth": 0,
           "minHeight": 0,
           "excludePatterns": [],
-          "urlTransformPipeline": "replace('th.wallhaven.cc/small','w.wallhaven.cc/full') | lastafter('/', 'wallhaven-')"
+          "urlTransformPipeline": "replace('th.wallhaven.cc/small','w.wallhaven.cc/full') | lastafter('/', 'wallhaven-')",
+          "urlExtFallbacks": ["png"]
         }
       ]
     },
