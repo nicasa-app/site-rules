@@ -1,5 +1,5 @@
 {
-  "version": "1.1.1",
+  "version": "1.1.2",
   "updatedAt": "2026-04-11T00:00:00Z",
   "categories": [
     {
@@ -11,8 +11,8 @@
           "hostPattern": "*.pixiv.net",
           "enabled": true,
           "imageSelector": "img[src*=\"i.pximg.net\"]",
-          "minWidth": 0,
-          "minHeight": 0,
+          "minWidth": 100,
+          "minHeight": 100,
           "excludePatterns": ["/common/", "/user-profile/"],
           "urlTransforms": [
             { "from": "custom-thumb", "to": "img-master" },
@@ -186,8 +186,8 @@
           "hostPattern": "www.zerochan.net",
           "enabled": true,
           "imageSelector": "#large img, #entry-image img",
-          "minWidth": 0,
-          "minHeight": 0,
+          "minWidth": 100,
+          "minHeight": 100,
           "excludePatterns": []
         },
         {
@@ -196,8 +196,8 @@
           "hostPattern": "wallhaven.cc",
           "enabled": true,
           "imageSelector": "img[src*=\"w.wallhaven.cc/full\"], img[src*=\"th.wallhaven.cc/small\"]",
-          "minWidth": 0,
-          "minHeight": 0,
+          "minWidth": 100,
+          "minHeight": 100,
           "excludePatterns": [],
           "urlTransformPipeline": "replace('th.wallhaven.cc/small','w.wallhaven.cc/full') | lastafter('/', 'wallhaven-')",
           "urlExtFallbacks": ["png"]
