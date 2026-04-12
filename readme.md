@@ -81,7 +81,6 @@ The extension caches the result in `chrome.storage.local` and refreshes it:
 ### Image Boards & Galleries
 | Site | Host pattern |
 |---|---|
-
 | Pinterest | `*.pinterest.com` |
 | Imgur | `imgur.com` |
 | Zerochan | `www.zerochan.net` |
