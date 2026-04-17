@@ -1,6 +1,6 @@
 {
   "version": "1.1.2",
-  "updatedAt": "2026-04-11T00:00:00Z",
+  "updatedAt": "2026-04-17T00:00:00Z",
   "categories": [
     {
       "name": "Art & Illustration",
@@ -154,6 +154,19 @@
           "minWidth": 100,
           "minHeight": 100,
           "excludePatterns": ["avatar", "icon"]
+        },
+        {
+          "id": "builtin_weibo",
+          "name": "微博 (Weibo)",
+          "hostPattern": "*.weibo.com",
+          "enabled": true,
+          "imageSelector": "img.woo-picture-img",
+          "minWidth": 100,
+          "minHeight": 100,
+          "excludePatterns": [],
+          "urlTransforms": [
+            { "from": "/orj360/", "to": "/mw2000/" }
+          ]
         }
       ]
     },
